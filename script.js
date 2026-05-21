@@ -71,6 +71,12 @@ clearBtn.addEventListener("click", () => {
 
 // BFS BUTTON
 const bfsBtn = document.createElement("button");
+const mazeBtn = document.createElement("button");
+mazeBtn.innerText = "Generate Maze";
+
+document.querySelector(".controls").appendChild(mazeBtn);
+
+mazeBtn.addEventListener("click", generateMaze);
 bfsBtn.innerText = "Run BFS";
 
 document.querySelector(".controls").appendChild(bfsBtn);
@@ -190,4 +196,46 @@ async function drawPath(parentMap) {
 // SLEEP FUNCTION
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+function generateMaze() {
+
+    // CLEAR OLD WALLS
+    for (let row = 0; row < rows; row++) {
+
+        for (let col = 0; col < cols; col++) {
+
+            const cell = cells[row][col];
+
+            if (
+                cell !== startNode &&
+                cell !== endNode
+            ) {
+                cell.classList.remove("wall");
+                cell.classList.remove("visited");
+                cell.classList.remove("path");
+            }
+        }
+    }
+
+    // RANDOM WALLS
+    for (let row = 0; row < rows; row++) {
+
+        for (let col = 0; col < cols; col++) {
+
+            const cell = cells[row][col];
+
+            if (
+                cell !== startNode &&
+                cell !== endNode
+            ) {
+
+                let random = Math.random();
+
+                // 30% WALL CHANCE
+                if (random < 0.3) {
+                    cell.classList.add("wall");
+                }
+            }
+        }
+    }
 }
