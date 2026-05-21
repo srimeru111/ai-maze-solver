@@ -79,8 +79,8 @@ document.querySelector(".controls").appendChild(mazeBtn);
 mazeBtn.addEventListener("click", generateMaze);
 bfsBtn.innerText = "Run BFS";
 
+document.querySelector(".controls").appendChild(mazeBtn);
 document.querySelector(".controls").appendChild(bfsBtn);
-
 bfsBtn.addEventListener("click", runBFS);
 
 // BFS ALGORITHM
