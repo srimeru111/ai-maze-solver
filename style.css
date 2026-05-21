@@ -48,3 +48,18 @@ button {
 .cell.wall {
     background-color: black;
 }
+.cell.start {
+    background-color: green;
+}
+
+.cell.end {
+    background-color: red;
+}
+
+.cell.visited {
+    background-color: #38bdf8;
+}
+
+.cell.path {
+    background-color: yellow;
+}
